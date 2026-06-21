@@ -1,0 +1,9 @@
+1. Before the solving
+We need the Pos_code variable instead of three different Position column because then the three column sums will always be 1, they will always depends on each other.
+It can be a strange result because we don't have earning data before a specific year so we will need to mention this
+We need a log1p transformation vacause of the outliers in the cap-inflated earnings (like Tom Brady), so then the distribution will be normal and not right skewed
+
+2. After the solving
+So in tigramite we need time series, no matter if we using RegressionCI or parr-corr, we need datas what are ordered in time based on an X and/or Y columns. This is why I searched for another method what you can see in the notebook, I tried to solve other things too because the skewness problem got my attention, so I printed out some useful information about the process and the skewness. I used PC (https://causal-learn.readthedocs.io/en/latest/) and LiNGAM (https://lingam.readthedocs.io/en/latest/) algorithms and at the end I used a "bootstrap-stabilty" checking so as you see at the output is same thing but with probability. After all the shits I just tried to solve the issue with visualization, for this part I used AI as hard as fuck. I had to do the visualization because here (not like at the tigramite) we need to do the visualization. 
+
+-AND WHY POS_CODE and not one-hot encoded variables. As I think we need to do this way like at the first try (with regressionCI) because if you think about it: in one-hot encoded format you get dependent columns, if you get2 columns you can calculate the third one, no matter what algorithm are we using, it will think that the position columns are dependents of each other because of this, so we need to stay at this. So the first position got code: 1, the second position got code: 2 and so on...
